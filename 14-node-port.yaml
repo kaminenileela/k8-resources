@@ -1,9 +1,9 @@
-# this is cluster IP service 
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: nginx-np
 spec:
+  type: NodePort
   selector:
     environment: dev
     name: frontend
