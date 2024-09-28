@@ -1,9 +1,10 @@
+# this works only in cloud.our cloud provider is aws. so aws type of lb will be created
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-np
+  name: nginx-lb
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     environment: dev
     name: frontend
@@ -13,4 +14,4 @@ spec:
   - protocol: TCP
     port: 80 # service-port
     targetPort: 80  #target-port
-    nodePort: 32760 # fixing this random port, in aws random is 30000-32767
+    nodePort: 32761
