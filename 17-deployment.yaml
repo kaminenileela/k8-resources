@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx #pod = replicaset-name-<some-random-string>
+  # these labels are deployment related labels
+  labels:
+    app: nginx
+    purpose: deployment
+    tier: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: web
+      app: nginx
+      project: test-project
+  # below is pod definition. pod is subset of replicaset   
+  template:
+    metadata:
+      labels:
+        tier: web
+        app: nginx
+        project: test-project
+        extra-key: extra-value
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+
