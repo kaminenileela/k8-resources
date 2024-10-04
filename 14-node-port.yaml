@@ -13,4 +13,4 @@ spec:
   - protocol: TCP
     port: 80 # service-port
     targetPort: 80  #target-port
-    nodePort: 32760 # fixing this random port, in aws random is 30000-32767
+    nodePort: 32768 # fixing this random port, in aws random is 30000-32767
