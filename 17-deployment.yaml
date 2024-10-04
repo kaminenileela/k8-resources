@@ -8,8 +8,8 @@ metadata:
     purpose: deployment
     tier: web
 spec:
-  replicas: 20
-  # replicas: 3
+  # replicas: 20
+  replicas: 3
   selector:
     matchLabels:
       tier: web
