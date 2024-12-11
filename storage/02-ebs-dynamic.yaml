@@ -1,6 +1,3 @@
-# when storage class is created, we need not create pv. pv and volume creation are automatically done.
-# we have to create pvc only. im making claim directly.
-
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -12,14 +9,16 @@ spec:
   resources:
     requests:
       storage: 4Gi
+# when storage class is created, we need not create pv. pv and volume creation are automatically done.
+# we have to create pvc only. im making claim directly.
 ---
 apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-dynamic
   labels: 
-   purpose: ebs-static
-   project: expense
+    purpose: ebs-static
+    project: expense
 spec:
   containers:
   - name: nginx
@@ -28,7 +27,7 @@ spec:
     - name: persistent-storage
       mountPath: /usr/share/nginx/html
   nodeSelector:
-    topology.kubernetes.io/zone: us-east-1c # give your node region if nodes are created in diff regions
+    topology.kubernetes.io/zone: us-east-1f # give your node region if nodes are created in diff regions
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
