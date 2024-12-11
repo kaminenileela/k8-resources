@@ -10,7 +10,7 @@ spec:
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: vol-03c604538dd7d2f41 #give your volume id created in EBS
+    volumeHandle: vol-0438e3652bebdac1a #give your volume id created in EBS
 ---
 # this is claim process
 apiVersion: v1
